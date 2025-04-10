@@ -38,7 +38,7 @@
                 <h2>Job Description and Resume Matcher</h2>
             </div>
             <div class="card-body">
-                <form method="POST" action="/matcher" enctype="multipart/form-data">
+                <form method="POST" action="{{ url_for('matcher') }}" enctype="multipart/form-data">
                     <div class="form-group">
                         <label for="job_description">Job Description:</label>
                         <textarea class="form-control" id="job_description" name="job_description" rows="5" required></textarea>
