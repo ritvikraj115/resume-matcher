@@ -41,9 +41,9 @@ def matchresume():
 
 @app.route('/matcher', methods=['GET','POST'])
 def matcher():
-    if not os.path.exists(app.config['UPLOAD_FOLDER']):
-        os.makedirs(app.config['UPLOAD_FOLDER'])
     if request.method=='POST':
+        if not os.path.exists(app.config['UPLOAD_FOLDER']):
+            os.makedirs(app.config['UPLOAD_FOLDER'])
         job_description= request.form.get('job_description')
         resume_files= request.files.getlist('resumes')
         resumes=[]
