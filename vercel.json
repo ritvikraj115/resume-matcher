@@ -1,14 +1,15 @@
+// vercel.json
 {
     "version": 2,
-    "builds": [
-      {
-        "src": "api/index.py",
-        "use": "@vercel/python"
+    "functions": {
+      "api/index.py": {
+        "excludeFiles": "{uploads,input_resume,venv,__pycache__}/**"
       }
-    ],
+    },
     "rewrites": [
       { "source": "/(.*)", "destination": "/api/index.py" }
     ]
   }
+  
   
   
