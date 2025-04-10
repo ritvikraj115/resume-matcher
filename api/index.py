@@ -41,6 +41,8 @@ def matchresume():
 
 @app.route('/matcher', methods=['GET','POST'])
 def matcher():
+    if not os.path.exists(app.config['UPLOAD_FOLDER']):
+        os.makedirs(app.config['UPLOAD_FOLDER'])
     if request.method=='POST':
         job_description= request.form.get('job_description')
         resume_files= request.files.getlist('resumes')
@@ -65,9 +67,3 @@ def matcher():
 
         return render_template('index.html', message= 'Top matching resumes:', top_resumes=top_resumes, similarity_scores=similarity_scores)
     return render_template('index.html')
-
-
-if __name__=='__main__':
-    if not os.path.exists(app.config['UPLOAD_FOLDER']):
-        os.makedirs(app.config['UPLOAD_FOLDER'])
-    app.run(debug=True)
