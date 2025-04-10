@@ -1,0 +1,4 @@
+PyPDF2
+flask
+docx2txt
+scikit-learn
